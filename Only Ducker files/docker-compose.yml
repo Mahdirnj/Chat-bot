@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  frontend:
+    container_name: frontend-container # نام مشخص برای کانتینر فرانت‌اند
+    build:
+      context: ./Front-end # مسیر دایرکتوری فایل‌های فرانت‌اند
+    ports:
+      - "3000:80" # تغییر پورت‌ها به پورت مناسب
+    restart: always # در صورت توقف، کانتینر به طور خودکار راه‌اندازی مجدد می‌شود
+    networks:
+      - app-network # شبکه اختصاصی برای ارتباط بین فرانت‌اند و بک‌اند
+
+  backend:
+    container_name: backend-container # نام مشخص برای کانتینر بک‌اند
+    build:
+      context: ./Back-end # مسیر دایرکتوری فایل‌های بک‌اند
+    ports:
+      - "5000:5000" # پورت‌های مورد نیاز بک‌اند
+    restart: always # در صورت توقف، کانتینر به طور خودکار راه‌اندازی مجدد می‌شود
+    networks:
+      - app-network # شبکه اختصاصی
+    depends_on:
+      - frontend # تضمین اینکه فرانت‌اند قبل از بک‌اند راه‌اندازی می‌شود
+
+networks:
+  app-network:
+    driver: bridge # شبکه برای ارتباط داخلی بین کانتینرها
