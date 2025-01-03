@@ -1,0 +1,187 @@
+/* بدنه کلی صفحه */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #213555, #3E5879);
+    color: #F5EFE7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* استایل عنوان */
+#animated-text {
+    position: absolute;
+    top: 20px;
+    right: -200px;
+    font-size: 2rem;
+    animation: slideIn 1.5s forwards;
+}
+
+@keyframes slideIn {
+    to {
+        right: 20px;
+    }
+}
+
+/* استایل کانتینر چت */
+#chat-container {
+    background-color: #F5EFE7;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 95%;
+    max-width: 600px; /* افزایش عرض */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* بخش پیام‌ها */
+#messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 400px; /* افزایش ارتفاع */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* زیبا کردن اسکرول‌بار */
+#messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+#messages::-webkit-scrollbar-track {
+    background: #F5EFE7;
+    border-radius: 10px;
+}
+
+#messages::-webkit-scrollbar-thumb {
+    background: #3E5879;
+    border-radius: 10px;
+}
+
+#messages::-webkit-scrollbar-thumb:hover {
+    background: #213555;
+}
+
+/* استایل فرم چت */
+#chat-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* ورودی متن */
+#user-input {
+    flex-grow: 1;
+    padding: 12px; /* کمی بزرگ‌تر */
+    font-size: 1.1rem; /* کمی بزرگ‌تر */
+    border: 2px solid #3E5879;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+#user-input:focus {
+    border-color: #D8C4B6;
+    outline: none;
+    box-shadow: 0 0 8px rgba(216, 196, 182, 0.8);
+}
+
+/* دکمه ارسال */
+button {
+    background-color: #213555;
+    color: #F5EFE7;
+    padding: 12px 20px; /* بزرگ‌تر */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem; /* بزرگ‌تر */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #3E5879;
+    transform: scale(1.1);
+}
+
+/* استایل پیام‌های کاربر */
+.user-message {
+    background-color: #213555;
+    color: #F5EFE7;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: right;
+    max-width: 80%;
+    align-self: flex-end;
+}
+
+/* استایل پیام‌های چت‌بات */
+.bot-message {
+    background-color: #D8C4B6;
+    color: #213555;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 80%;
+    align-self: flex-start;
+}
+
+/* ریسپانسیو برای نمایشگرهای کوچک‌تر */
+@media (max-width: 768px) {
+    #chat-container {
+        padding: 15px;
+        width: 90%;
+        max-width: 500px;
+    }
+
+    #user-input {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 10px 18px;
+        font-size: 1rem;
+    }
+
+    #messages {
+        max-height: 300px;
+    }
+
+    #animated-text {
+        font-size: 1.5rem;
+        right: 10px;
+    }
+}
+
+/* ریسپانسیو برای نمایشگرهای خیلی کوچک */
+@media (max-width: 480px) {
+    #chat-container {
+        width: 90%;
+        max-width: 400px;
+        padding: 10px;
+    }
+
+    #user-input {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    #messages {
+        max-height: 250px;
+    }
+
+    #animated-text {
+        font-size: 1.2rem;
+        right: 10px;
+    }
+}
