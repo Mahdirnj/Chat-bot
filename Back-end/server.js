@@ -13,7 +13,7 @@ const COHERE_API_URL = 'Your API URL';
 
 app.use(cors());
 app.use(bodyParser.json());
-// dwed
+
 
 
 app.post('/chat', async (req, res) => {
