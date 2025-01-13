@@ -1,4 +1,3 @@
-Here’s a professional and engaging description for your Chatbot repository with emojis:
 
 Chatbot 🤖
 
@@ -31,5 +30,3 @@ cd Chat-bot
 	4.	Customize the chatbot to meet your specific needs!
 
 Dive into the world of conversational AI with this Chatbot! 🌟
-
-Let me know if you’d like further adjustments or enhancements!
